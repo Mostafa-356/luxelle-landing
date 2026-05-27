@@ -1,71 +1,103 @@
-<section id="about" class="section-padding bg-luxelle">
+<section id="about" class="section-padding relative overflow-hidden">
+  <div class="absolute inset-0 bg-luxelle -z-10"></div>
+  <div class="orb orb-gold absolute w-80 h-80 bottom-0 left-0 opacity-30 -z-10"></div>
+
   <div class="section-container">
-    <!-- Section Title -->
-    <div class="text-center mb-16" appScrollReveal>
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">
-        About <span class="text-gradient">Luxelle</span>
-      </h2>
-      <div class="w-16 h-1 bg-gradient-to-r from-rose-gold to-warm-gold mx-auto rounded-full"></div>
+
+    <!-- Header -->
+    <div class="section-header" appScrollReveal>
+      <span class="section-eyebrow">Our Story</span>
+      <h2 class="mb-4">About <span class="text-gradient">Luxelle</span></h2>
+      <div class="accent-divider"></div>
     </div>
 
-    <!-- Content Grid -->
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <!-- Left: Image Placeholder -->
+    <!-- Content grid -->
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Left: Visual -->
       <div appScrollReveal="slideInLeft" class="relative">
-        <div class="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-rose-gold/20 to-warm-gold/20 flex items-center justify-center">
-          <div class="text-center">
-            <lucide-icon name="sparkles" class="w-24 h-24 text-rose-gold/50 mx-auto mb-4" ></lucide-icon>
-            <p class="text-luxelle-tertiary">Premium Ambiance</p>
+        <!-- Main visual box -->
+        <div class="relative rounded-3xl overflow-hidden aspect-[4/5] bg-gradient-to-br from-rose-gold/10 to-warm-gold/5 border border-luxelle-subtle flex items-end">
+          <!-- Decorative pattern -->
+          <div class="absolute inset-0 opacity-[0.04]"
+               style="background-image: radial-gradient(circle, var(--accent-primary) 1px, transparent 1px); background-size: 24px 24px;"></div>
+          <!-- Center icon -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center space-y-4">
+              <div class="w-24 h-24 rounded-3xl bg-gradient-to-br from-rose-gold/20 to-warm-gold/15 border border-rose-gold/20 flex items-center justify-center mx-auto glow-rose">
+                <lucide-icon name="sparkles" class="w-10 h-10 text-rose-gold"></lucide-icon>
+              </div>
+              <p class="text-luxelle-tertiary text-sm font-medium tracking-wide">Premium Ambiance</p>
+            </div>
+          </div>
+          <!-- Stats overlay at bottom -->
+          <div class="relative w-full p-6 bg-gradient-to-t from-black/40 to-transparent backdrop-blur-sm">
+            <div class="grid grid-cols-3 gap-4 text-center">
+              <div>
+                <div class="stat-number text-2xl">500+</div>
+                <div class="text-[10px] text-luxelle-tertiary uppercase tracking-wider">Clients</div>
+              </div>
+              <div class="border-x border-white/10">
+                <div class="stat-number text-2xl">98%</div>
+                <div class="text-[10px] text-luxelle-tertiary uppercase tracking-wider">Satisfied</div>
+              </div>
+              <div>
+                <div class="stat-number text-2xl">8yr</div>
+                <div class="text-[10px] text-luxelle-tertiary uppercase tracking-wider">Experience</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating accent card -->
+        <div class="absolute -bottom-6 -right-6 luxelle-card !p-4 !rounded-2xl shadow-luxelle-card w-44 hidden sm:block animate-fade-in delay-400">
+          <div class="flex items-center gap-3">
+            <div class="icon-box !w-9 !h-9 flex-shrink-0">
+              <lucide-icon name="award" class="w-4 h-4 text-warm-gold"></lucide-icon>
+            </div>
+            <div>
+              <p class="text-[11px] font-bold text-luxelle leading-none">Certified</p>
+              <p class="text-[10px] text-luxelle-tertiary mt-0.5">Expert Team</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Right: Text Content -->
-      <div appScrollReveal="slideInRight" class="space-y-6">
-        <p class="text-lg text-luxelle-secondary leading-relaxed">
+      <!-- Right: Text -->
+      <div appScrollReveal="slideInRight" class="space-y-7">
+        <p class="text-luxelle-secondary leading-relaxed text-base md:text-lg">
           Luxelle is a premier beauty and wellness destination dedicated to providing exceptional
           treatments in an atmosphere of pure elegance and sophistication. We believe that true
-          beauty comes from feeling pampered and cared for.
+          beauty comes from feeling genuinely pampered and cared for.
         </p>
-
-        <p class="text-lg text-luxelle-secondary leading-relaxed">
+        <p class="text-luxelle-secondary leading-relaxed text-base md:text-lg">
           Our team of expert professionals is committed to delivering personalized services that
-          exceed your expectations. From luxury skincare to wellness consultations, every treatment
-          is designed to rejuvenate your mind, body, and spirit.
+          exceed your expectations. Every treatment is designed to rejuvenate your mind, body, and spirit.
         </p>
 
         <!-- Highlights -->
-        <div class="space-y-4 pt-4">
-          <div class="flex gap-4" appScrollReveal="fadeInUp">
-            <div class="flex-shrink-0">
-              <lucide-icon name="sparkles" class="w-6 h-6 text-rose-gold" ></lucide-icon>
+        <div class="space-y-4 pt-2">
+          <div *ngFor="let item of [
+            { icon: 'sparkles', title: 'Premium Quality',     desc: 'Only the finest products and techniques' },
+            { icon: 'heart',    title: 'Personalized Care',   desc: 'Tailored treatments for your unique needs' },
+            { icon: 'award',    title: 'Expert Professionals',desc: 'Certified and experienced beauty specialists' }
+          ]"
+          class="flex items-start gap-4 p-4 rounded-2xl border border-luxelle-subtle
+                 hover:border-luxelle-medium hover:bg-white/[0.02] transition-all duration-300 group"
+          appScrollReveal="fadeInUp">
+            <div class="icon-box flex-shrink-0">
+              <lucide-icon [name]="item.icon" class="w-5 h-5 text-rose-gold"></lucide-icon>
             </div>
             <div>
-              <h3 class="font-semibold text-luxelle mb-1">Premium Quality</h3>
-              <p class="text-luxelle-tertiary">Only the finest products and techniques</p>
-            </div>
-          </div>
-
-          <div class="flex gap-4" appScrollReveal="fadeInUp">
-            <div class="flex-shrink-0">
-              <lucide-icon name="heart" class="w-6 h-6 text-rose-gold" ></lucide-icon>
-            </div>
-            <div>
-              <h3 class="font-semibold text-luxelle mb-1">Personalized Care</h3>
-              <p class="text-luxelle-tertiary">Tailored treatments for your unique needs</p>
-            </div>
-          </div>
-
-          <div class="flex gap-4" appScrollReveal="fadeInUp">
-            <div class="flex-shrink-0">
-              <lucide-icon name="award" class="w-6 h-6 text-rose-gold" ></lucide-icon>
-            </div>
-            <div>
-              <h3 class="font-semibold text-luxelle mb-1">Expert Professionals</h3>
-              <p class="text-luxelle-tertiary">Certified and experienced beauty specialists</p>
+              <h3 class="text-sm font-semibold text-luxelle mb-0.5">{{ item.title }}</h3>
+              <p class="text-luxelle-tertiary text-sm">{{ item.desc }}</p>
             </div>
           </div>
         </div>
+
+        <app-button variant="primary" size="md" (onClick)="null">
+          Learn Our Story
+        </app-button>
       </div>
     </div>
   </div>

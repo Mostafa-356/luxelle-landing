@@ -1,178 +1,165 @@
-<section id="booking" class="section-padding bg-luxelle">
+<section id="booking" class="section-padding relative overflow-hidden">
+  <div class="absolute inset-0 bg-luxelle-card/30 -z-10"></div>
+  <div class="orb orb-rose absolute w-96 h-96 -bottom-20 -left-20 opacity-25 -z-10"></div>
+  <div class="orb orb-gold absolute w-80 h-80 -top-20 -right-20 opacity-20 -z-10"></div>
+
   <div class="section-container">
-    <!-- Section Title -->
-    <div class="text-center mb-16" appScrollReveal>
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">
-        Book Your <span class="text-gradient">Appointment</span>
-      </h2>
-      <div class="w-16 h-1 bg-gradient-to-r from-rose-gold to-warm-gold mx-auto rounded-full"></div>
-      <p class="text-luxelle-tertiary mt-4 max-w-2xl mx-auto">
-        Reserve your spot for a luxurious beauty and wellness experience
+
+    <!-- Header -->
+    <div class="section-header" appScrollReveal>
+      <span class="section-eyebrow">Reserve Your Spot</span>
+      <h2 class="mb-4">Book Your <span class="text-gradient">Appointment</span></h2>
+      <div class="accent-divider"></div>
+      <p class="text-luxelle-tertiary mt-5 max-w-lg mx-auto text-base leading-relaxed">
+        Reserve your spot for a luxurious beauty and wellness experience.
       </p>
     </div>
 
-    <!-- Booking Form -->
+    <!-- Form card -->
     <div class="max-w-2xl mx-auto" appScrollReveal>
-      <app-card class="!p-8">
+      <div class="luxelle-card !p-8 md:!p-10">
         <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" class="space-y-6">
-          <!-- Name Field -->
-          <div class="space-y-2">
-            <label class="flex items-center gap-2 text-sm font-medium text-luxelle-secondary">
-              <lucide-icon name="user" class="w-4 h-4 text-rose-gold" ></lucide-icon>
-              Full Name
-              <span class="text-rose-gold">*</span>
-            </label>
-            <input
-              type="text"
-              formControlName="fullName"
-              placeholder="Enter your full name"
-              class="w-full px-4 py-3 rounded-lg bg-luxelle-card text-luxelle border border-rose-gold/20 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/30 outline-none transition-all"
-            />
-            <span
-              *ngIf="bookingForm.get('fullName')?.invalid && bookingForm.get('fullName')?.touched"
-              class="text-sm text-red-400"
-            >
-              Full name is required
-            </span>
+
+          <!-- Name + Email row -->
+          <div class="grid sm:grid-cols-2 gap-5">
+            <!-- Name -->
+            <div class="space-y-2">
+              <label class="flex items-center gap-2 text-xs font-semibold text-luxelle-secondary uppercase tracking-wider">
+                <lucide-icon name="user" class="w-3.5 h-3.5 text-rose-gold"></lucide-icon>
+                Full Name <span class="text-rose-gold">*</span>
+              </label>
+              <input
+                type="text"
+                formControlName="fullName"
+                placeholder="Jane Doe"
+                class="luxelle-input"
+              />
+              <span *ngIf="bookingForm.get('fullName')?.invalid && bookingForm.get('fullName')?.touched"
+                    class="text-xs text-red-400 flex items-center gap-1">
+                <lucide-icon name="alert-circle" class="w-3 h-3"></lucide-icon>
+                Full name is required
+              </span>
+            </div>
+            <!-- Email -->
+            <div class="space-y-2">
+              <label class="flex items-center gap-2 text-xs font-semibold text-luxelle-secondary uppercase tracking-wider">
+                <lucide-icon name="mail" class="w-3.5 h-3.5 text-rose-gold"></lucide-icon>
+                Email <span class="text-rose-gold">*</span>
+              </label>
+              <input
+                type="email"
+                formControlName="email"
+                placeholder="you@example.com"
+                class="luxelle-input"
+              />
+              <span *ngIf="bookingForm.get('email')?.invalid && bookingForm.get('email')?.touched"
+                    class="text-xs text-red-400 flex items-center gap-1">
+                <lucide-icon name="alert-circle" class="w-3 h-3"></lucide-icon>
+                Valid email is required
+              </span>
+            </div>
           </div>
 
-          <!-- Email Field -->
+          <!-- Phone -->
           <div class="space-y-2">
-            <label class="flex items-center gap-2 text-sm font-medium text-luxelle-secondary">
-              <lucide-icon name="mail" class="w-4 h-4 text-rose-gold" ></lucide-icon>
-              Email
-              <span class="text-rose-gold">*</span>
-            </label>
-            <input
-              type="email"
-              formControlName="email"
-              placeholder="Enter your email"
-              class="w-full px-4 py-3 rounded-lg bg-luxelle-card text-luxelle border border-rose-gold/20 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/30 outline-none transition-all"
-            />
-            <span
-              *ngIf="bookingForm.get('email')?.invalid && bookingForm.get('email')?.touched"
-              class="text-sm text-red-400"
-            >
-              Valid email is required
-            </span>
-          </div>
-
-          <!-- Phone Field -->
-          <div class="space-y-2">
-            <label class="flex items-center gap-2 text-sm font-medium text-luxelle-secondary">
-              <lucide-icon name="phone" class="w-4 h-4 text-rose-gold" ></lucide-icon>
-              Phone Number
-              <span class="text-rose-gold">*</span>
+            <label class="flex items-center gap-2 text-xs font-semibold text-luxelle-secondary uppercase tracking-wider">
+              <lucide-icon name="phone" class="w-3.5 h-3.5 text-rose-gold"></lucide-icon>
+              Phone Number <span class="text-rose-gold">*</span>
             </label>
             <input
               type="tel"
               formControlName="phone"
-              placeholder="Enter your phone number"
-              class="w-full px-4 py-3 rounded-lg bg-luxelle-card text-luxelle border border-rose-gold/20 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/30 outline-none transition-all"
+              placeholder="+1 (555) 000-0000"
+              class="luxelle-input"
             />
-            <span
-              *ngIf="bookingForm.get('phone')?.invalid && bookingForm.get('phone')?.touched"
-              class="text-sm text-red-400"
-            >
+            <span *ngIf="bookingForm.get('phone')?.invalid && bookingForm.get('phone')?.touched"
+                  class="text-xs text-red-400 flex items-center gap-1">
+              <lucide-icon name="alert-circle" class="w-3 h-3"></lucide-icon>
               Phone number is required
             </span>
           </div>
 
-          <!-- Service Type -->
+          <!-- Service -->
           <div class="space-y-2">
-            <label class="flex items-center gap-2 text-sm font-medium text-luxelle-secondary">
-              <span class="text-rose-gold">✨</span>
-              Service Type
-              <span class="text-rose-gold">*</span>
+            <label class="flex items-center gap-2 text-xs font-semibold text-luxelle-secondary uppercase tracking-wider">
+              <lucide-icon name="sparkles" class="w-3.5 h-3.5 text-rose-gold"></lucide-icon>
+              Service Type <span class="text-rose-gold">*</span>
             </label>
-            <select
-              formControlName="serviceType"
-              class="w-full px-4 py-3 rounded-lg bg-luxelle-card text-luxelle border border-rose-gold/20 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/30 outline-none transition-all"
-            >
-              <option value="">Select a service</option>
+            <select formControlName="serviceType" class="luxelle-input">
+              <option value="">Select a service...</option>
               <option *ngFor="let service of services" [value]="service.id">
-                {{ service.name }} - ${{ service.price }}
+                {{ service.name }} — ${{ service.price }}
               </option>
             </select>
-            <span
-              *ngIf="bookingForm.get('serviceType')?.invalid && bookingForm.get('serviceType')?.touched"
-              class="text-sm text-red-400"
-            >
-              Service type is required
+            <span *ngIf="bookingForm.get('serviceType')?.invalid && bookingForm.get('serviceType')?.touched"
+                  class="text-xs text-red-400 flex items-center gap-1">
+              <lucide-icon name="alert-circle" class="w-3 h-3"></lucide-icon>
+              Please select a service
             </span>
           </div>
 
-          <!-- Date Field -->
-          <div class="space-y-2">
-            <label class="flex items-center gap-2 text-sm font-medium text-luxelle-secondary">
-              <lucide-icon name="calendar" class="w-4 h-4 text-rose-gold" ></lucide-icon>
-              Preferred Date
-              <span class="text-rose-gold">*</span>
-            </label>
-            <input
-              type="date"
-              formControlName="preferredDate"
-              class="w-full px-4 py-3 rounded-lg bg-luxelle-card text-luxelle border border-rose-gold/20 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/30 outline-none transition-all"
-            />
-            <span
-              *ngIf="bookingForm.get('preferredDate')?.invalid && bookingForm.get('preferredDate')?.touched"
-              class="text-sm text-red-400"
-            >
-              Date is required
-            </span>
+          <!-- Date + Time row -->
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div class="space-y-2">
+              <label class="flex items-center gap-2 text-xs font-semibold text-luxelle-secondary uppercase tracking-wider">
+                <lucide-icon name="calendar" class="w-3.5 h-3.5 text-rose-gold"></lucide-icon>
+                Preferred Date <span class="text-rose-gold">*</span>
+              </label>
+              <input type="date" formControlName="preferredDate" class="luxelle-input" />
+              <span *ngIf="bookingForm.get('preferredDate')?.invalid && bookingForm.get('preferredDate')?.touched"
+                    class="text-xs text-red-400 flex items-center gap-1">
+                <lucide-icon name="alert-circle" class="w-3 h-3"></lucide-icon>
+                Date is required
+              </span>
+            </div>
+            <div class="space-y-2">
+              <label class="flex items-center gap-2 text-xs font-semibold text-luxelle-secondary uppercase tracking-wider">
+                <lucide-icon name="clock" class="w-3.5 h-3.5 text-rose-gold"></lucide-icon>
+                Preferred Time <span class="text-rose-gold">*</span>
+              </label>
+              <input type="time" formControlName="preferredTime" class="luxelle-input" />
+              <span *ngIf="bookingForm.get('preferredTime')?.invalid && bookingForm.get('preferredTime')?.touched"
+                    class="text-xs text-red-400 flex items-center gap-1">
+                <lucide-icon name="alert-circle" class="w-3 h-3"></lucide-icon>
+                Time is required
+              </span>
+            </div>
           </div>
 
-          <!-- Time Field -->
+          <!-- Notes -->
           <div class="space-y-2">
-            <label class="flex items-center gap-2 text-sm font-medium text-luxelle-secondary">
-              <lucide-icon name="clock" class="w-4 h-4 text-rose-gold" ></lucide-icon>
-              Preferred Time
-              <span class="text-rose-gold">*</span>
-            </label>
-            <input
-              type="time"
-              formControlName="preferredTime"
-              class="w-full px-4 py-3 rounded-lg bg-luxelle-card text-luxelle border border-rose-gold/20 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/30 outline-none transition-all"
-            />
-            <span
-              *ngIf="bookingForm.get('preferredTime')?.invalid && bookingForm.get('preferredTime')?.touched"
-              class="text-sm text-red-400"
-            >
-              Time is required
-            </span>
-          </div>
-
-          <!-- Notes Field -->
-          <div class="space-y-2">
-            <label class="flex items-center gap-2 text-sm font-medium text-luxelle-secondary">
-              <lucide-icon name="file-text" class="w-4 h-4 text-rose-gold" ></lucide-icon>
+            <label class="flex items-center gap-2 text-xs font-semibold text-luxelle-secondary uppercase tracking-wider">
+              <lucide-icon name="file-text" class="w-3.5 h-3.5 text-rose-gold"></lucide-icon>
               Additional Notes
             </label>
             <textarea
               formControlName="notes"
-              placeholder="Any special requests or notes?"
-              rows="4"
-              class="w-full px-4 py-3 rounded-lg bg-luxelle-card text-luxelle border border-rose-gold/20 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/30 outline-none transition-all resize-none"
+              placeholder="Any special requests or preferences?"
+              rows="3"
+              class="luxelle-input resize-none"
             ></textarea>
           </div>
 
-          <!-- Submit Button -->
-          <app-button
-            variant="primary"
-            size="lg"
-            type="submit"
-            class="w-full"
-            [disabled]="isSubmitting()"
-          >
-            {{ isSubmitting() ? 'Booking...' : 'Book Appointment' }}
-          </app-button>
+          <!-- Submit -->
+          <div class="pt-2">
+            <app-button
+              variant="primary"
+              size="lg"
+              type="submit"
+              class="w-full"
+              [disabled]="isSubmitting()"
+            >
+              <lucide-icon name="calendar-check" class="w-4 h-4" *ngIf="!isSubmitting()"></lucide-icon>
+              <lucide-icon name="loader" class="w-4 h-4 animate-spin" *ngIf="isSubmitting()"></lucide-icon>
+              {{ isSubmitting() ? 'Booking...' : 'Confirm Appointment' }}
+            </app-button>
+          </div>
 
-          <!-- Terms -->
-          <p class="text-xs text-luxelle-tertiary text-center">
-            By booking, you agree to our terms and conditions
+          <p class="text-center text-luxelle-tertiary text-xs">
+            By booking you agree to our <a href="#" class="text-rose-gold hover:underline">terms &amp; conditions</a>. No spam, ever.
           </p>
         </form>
-      </app-card>
+      </div>
     </div>
   </div>
 </section>

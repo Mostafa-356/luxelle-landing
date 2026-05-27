@@ -18,20 +18,42 @@ export class ButtonComponent {
   onClick = output<void>();
 
   getButtonClasses(): string {
-    const baseClasses = 'font-medium rounded-lg transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rose-gold disabled:opacity-50 disabled:cursor-not-allowed';
+    const base = [
+      'inline-flex items-center justify-center gap-2',
+      'font-semibold rounded-2xl',
+      'transition-all duration-300',
+      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold/60 focus-visible:ring-offset-2',
+      'disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none',
+    ].join(' ');
 
-    const sizeClasses = {
-      sm: 'px-4 py-2 text-sm',
-      md: 'px-6 py-3 text-base',
-      lg: 'px-8 py-4 text-lg',
+    const sizes: Record<ButtonSize, string> = {
+      sm: 'px-5 py-2.5 text-sm',
+      md: 'px-7 py-3 text-[0.9375rem]',
+      lg: 'px-9 py-4 text-base',
     };
 
-    const variantClasses = {
-      primary: 'bg-rose-gold text-luxelle-dark hover:scale-105 hover:shadow-luxelle-glow active:scale-95',
-      outline: 'border-2 border-rose-gold text-rose-gold hover:bg-rose-gold hover:bg-opacity-10 active:scale-95',
-      ghost: 'text-rose-gold hover:bg-rose-gold hover:bg-opacity-10 active:scale-95',
+    const variants: Record<ButtonVariant, string> = {
+      primary: [
+        'bg-gradient-to-br from-rose-gold to-[#e09caa]',
+        'text-luxelle-dark shadow-luxelle-glow',
+        'hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(232,180,188,0.45)]',
+        'active:scale-[0.97] active:translate-y-0',
+      ].join(' '),
+
+      outline: [
+        'border-2 border-rose-gold text-rose-gold',
+        'hover:bg-rose-gold/10 hover:-translate-y-0.5',
+        'hover:shadow-[0_4px_20px_rgba(232,180,188,0.2)]',
+        'active:scale-[0.97]',
+      ].join(' '),
+
+      ghost: [
+        'text-rose-gold',
+        'hover:bg-rose-gold/10 hover:scale-105',
+        'active:scale-95',
+      ].join(' '),
     };
 
-    return `${baseClasses} ${sizeClasses[this.size()]} ${variantClasses[this.variant()]}`;
+    return `${base} ${sizes[this.size()]} ${variants[this.variant()]}`;
   }
 }

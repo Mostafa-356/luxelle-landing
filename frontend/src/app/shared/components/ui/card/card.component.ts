@@ -10,12 +10,19 @@ import { CommonModule } from '@angular/common';
 export class CardComponent {
   hoverable = input(true);
   glass = input(false);
+  featured = input(false);
 
   getCardClasses(): string {
-    const baseClasses = 'rounded-xl p-6 transition-all duration-300';
-    const hoverClasses = this.hoverable() ? 'hover:shadow-lg hover:shadow-rose-gold/20 hover:-translate-y-1' : '';
-    const glassClasses = this.glass() ? 'glass-card' : 'luxelle-card';
+    const base = 'rounded-2xl p-6 transition-all duration-[350ms] ease-spring';
 
-    return `${baseClasses} ${glassClasses} ${hoverClasses}`;
+    if (this.glass()) {
+      return `${base} glass-card ${this.hoverable() ? 'hover:-translate-y-1.5 hover:shadow-luxelle-card-hover hover:border-luxelle-medium' : ''}`;
+    }
+
+    if (this.featured()) {
+      return `${base} luxelle-card luxelle-card-featured`;
+    }
+
+    return `${base} luxelle-card ${this.hoverable() ? '' : '!transform-none !shadow-none'}`;
   }
 }

@@ -1,54 +1,75 @@
-<section
-  id="home"
-  class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
->
-  <!-- Gradient Background with Animated Particles -->
-  <div class="absolute inset-0 z-0">
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-luxelle-dark via-luxelle-dark to-rose-gold/10"
-    ></div>
-    <!-- Particle-like elements using CSS -->
-    <div class="absolute w-96 h-96 bg-rose-gold/5 rounded-full blur-3xl top-10 left-10 animate-pulse"></div>
-    <div class="absolute w-96 h-96 bg-warm-gold/5 rounded-full blur-3xl bottom-20 right-20 animate-pulse" style="animation-delay: 1s;"></div>
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+  <!-- Animated background orbs -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <div class="absolute inset-0 bg-luxelle"></div>
+    <!-- Large ambient orbs -->
+    <div class="orb orb-rose absolute w-[700px] h-[700px] -top-40 -left-40 opacity-70"></div>
+    <div class="orb orb-gold  absolute w-[500px] h-[500px] -bottom-20 -right-20 opacity-60" style="animation-delay:-3s"></div>
+    <div class="orb orb-blush absolute w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-40" style="animation-delay:-6s"></div>
+    <!-- Fine dot grid -->
+    <div class="absolute inset-0 opacity-[0.03]"
+         style="background-image: radial-gradient(circle, var(--text-primary) 1px, transparent 1px); background-size: 32px 32px;"></div>
   </div>
 
   <!-- Content -->
-  <div class="relative z-10 section-container text-center">
-    <div [@fadeInUp] class="space-y-6">
-      <!-- Main Headline -->
-      <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-        <span class="text-gradient">Luxelle</span>
-        <br />
-        <span class="text-luxelle-secondary">Where Beauty Meets Elegance</span>
-      </h1>
+  <div class="relative z-10 section-container text-center pt-24 pb-16">
 
-      <!-- Subtitle -->
-      <p class="text-lg md:text-xl text-luxelle-tertiary max-w-2xl mx-auto leading-relaxed">
-        Experience luxury skincare, wellness, and beauty treatments in a sophisticated atmosphere
-      </p>
-
-      <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-        <app-button
-          variant="primary"
-          size="lg"
-          (onClick)="scrollToServices()"
-        >
-          Discover Our Services
-        </app-button>
-        <app-button
-          variant="outline"
-          size="lg"
-          (onClick)="scrollToBooking()"
-        >
-          Book Now
-        </app-button>
-      </div>
+    <!-- Eyebrow pill -->
+    <div class="animate-fade-in flex justify-center mb-8">
+      <span class="section-eyebrow">
+        <span class="w-1.5 h-1.5 rounded-full bg-rose-gold inline-block animate-pulse"></span>
+        Premium Beauty &amp; Wellness
+      </span>
     </div>
 
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <lucide-icon name="arrow-down" class="w-6 h-6 text-rose-gold" ></lucide-icon>
+    <!-- Headline -->
+    <div [@fadeInUp] class="space-y-4 mb-8">
+      <h1 class="font-bold leading-none tracking-tight">
+        <span class="text-gradient">Luxelle</span>
+      </h1>
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-medium text-luxelle-secondary tracking-tight animate-fade-in delay-100">
+        Where Beauty Meets Elegance
+      </h2>
+    </div>
+
+    <!-- Subtitle -->
+    <p class="text-base md:text-lg text-luxelle-tertiary max-w-xl mx-auto leading-relaxed animate-fade-in delay-200 mb-10">
+      Experience luxury skincare, wellness, and beauty treatments in a sophisticated atmosphere crafted just for you.
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in delay-300 mb-20">
+      <app-button variant="primary" size="lg" (onClick)="scrollToServices()">
+        Discover Our Services
+      </app-button>
+      <app-button variant="outline" size="lg" (onClick)="scrollToBooking()">
+        Book Now
+      </app-button>
+    </div>
+
+    <!-- Stats row -->
+    <div class="animate-fade-in delay-400 grid grid-cols-3 gap-4 max-w-lg mx-auto">
+      <div class="text-center px-3 py-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+        <div class="stat-number">500+</div>
+        <div class="text-luxelle-tertiary text-xs mt-1 font-medium">Happy Clients</div>
+      </div>
+      <div class="text-center px-3 py-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+        <div class="stat-number">12+</div>
+        <div class="text-luxelle-tertiary text-xs mt-1 font-medium">Expert Staff</div>
+      </div>
+      <div class="text-center px-3 py-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+        <div class="stat-number">8yr</div>
+        <div class="text-luxelle-tertiary text-xs mt-1 font-medium">Experience</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-10 left-1/2 animate-bounce-gentle">
+    <div class="flex flex-col items-center gap-1.5 opacity-50">
+      <span class="text-[10px] uppercase tracking-[0.2em] text-luxelle-tertiary font-medium">Scroll</span>
+      <lucide-icon name="arrow-down" class="w-4 h-4 text-rose-gold"></lucide-icon>
     </div>
   </div>
 </section>
