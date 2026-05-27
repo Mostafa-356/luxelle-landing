@@ -2,13 +2,23 @@
 
   <!-- Animated background orbs -->
   <div class="absolute inset-0 z-0 overflow-hidden">
-    <div class="absolute inset-0 bg-luxelle"></div>
-    <!-- Large ambient orbs -->
-    <div class="orb orb-rose absolute w-[700px] h-[700px] -top-40 -left-40 opacity-70"></div>
-    <div class="orb orb-gold  absolute w-[500px] h-[500px] -bottom-20 -right-20 opacity-60" style="animation-delay:-3s"></div>
-    <div class="orb orb-blush absolute w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-40" style="animation-delay:-6s"></div>
+    <!-- Real hero background photo -->
+    <img
+      src="/assets/images/hero/hero-bg.png"
+      alt="Luxelle premium beauty and wellness spa interior with rose-gold ambient lighting"
+      class="absolute inset-0 w-full h-full object-cover"
+      fetchpriority="high"
+      loading="eager"
+    />
+    <!-- Darkening overlay so text remains readable -->
+    <div class="absolute inset-0 bg-black/55"></div>
+    <!-- Soft tinted gradient for brand feel -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#e8b4bc]/10 via-transparent to-[#d4af37]/8"></div>
+    <!-- Large ambient orbs (softer over image) -->
+    <div class="orb orb-rose absolute w-[700px] h-[700px] -top-40 -left-40 opacity-30"></div>
+    <div class="orb orb-gold  absolute w-[500px] h-[500px] -bottom-20 -right-20 opacity-25" style="animation-delay:-3s"></div>
     <!-- Fine dot grid -->
-    <div class="absolute inset-0 opacity-[0.03]"
+    <div class="absolute inset-0 opacity-[0.04]"
          style="background-image: radial-gradient(circle, var(--text-primary) 1px, transparent 1px); background-size: 32px 32px;"></div>
   </div>
 

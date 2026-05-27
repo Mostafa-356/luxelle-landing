@@ -18,20 +18,17 @@
       <div appScrollReveal="slideInLeft" class="relative">
         <!-- Main visual box -->
         <div class="relative rounded-3xl overflow-hidden aspect-[4/5] bg-gradient-to-br from-rose-gold/10 to-warm-gold/5 border border-luxelle-subtle flex items-end">
-          <!-- Decorative pattern -->
-          <div class="absolute inset-0 opacity-[0.04]"
-               style="background-image: radial-gradient(circle, var(--accent-primary) 1px, transparent 1px); background-size: 24px 24px;"></div>
-          <!-- Center icon -->
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="text-center space-y-4">
-              <div class="w-24 h-24 rounded-3xl bg-gradient-to-br from-rose-gold/20 to-warm-gold/15 border border-rose-gold/20 flex items-center justify-center mx-auto glow-rose">
-                <lucide-icon name="sparkles" class="w-10 h-10 text-rose-gold"></lucide-icon>
-              </div>
-              <p class="text-luxelle-tertiary text-sm font-medium tracking-wide">Premium Ambiance</p>
-            </div>
-          </div>
+          <!-- Real about photo -->
+          <img
+            src="/assets/images/about/about-main.png"
+            alt="Luxelle elegant luxury beauty treatment room with warm candlelight, rose petals and premium skincare products"
+            class="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+          <!-- Subtle gradient overlay to keep image visible but allow stats to read -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10"></div>
           <!-- Stats overlay at bottom -->
-          <div class="relative w-full p-6 bg-gradient-to-t from-black/40 to-transparent backdrop-blur-sm">
+          <div class="relative w-full p-6 bg-gradient-to-t from-black/50 to-transparent backdrop-blur-sm">
             <div class="grid grid-cols-3 gap-4 text-center">
               <div>
                 <div class="stat-number text-2xl">500+</div>
